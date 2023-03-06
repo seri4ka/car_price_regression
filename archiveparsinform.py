@@ -8,6 +8,7 @@ import pandas as pd
 
 url = 'https://novosibirsk.drom.ru/lada/2106/48569789.html'
 
+
 response = requests.get(url, timeout=5)
 print(response)
 keys = []
@@ -19,11 +20,11 @@ for i in characteristics:
     keys.append(item.text)
 
 
-with open('archivecars.csv', 'a', newline='') as f_object:
-    writer_object = writer(f_object)
-    writer_object.writerow(['Марка', 'Модель', 'Год выпуска', 'Двигатель', 'Мощность', 'КПП', 'Привод',
-        'Цвет', 'Пробег', 'Руль', 'Поколение', 'Комплектация', 'Цена'])  
-    f_object.close()
+# with open('CarsInform\\archivecars.csv', 'a', newline='') as f_object:
+#     writer_object = writer(f_object)
+#     writer_object.writerow(['Марка', 'Модель', 'Год выпуска', 'Двигатель', 'Мощность', 'КПП', 'Привод',
+#         'Цвет', 'Пробег', 'Руль', 'Поколение', 'Комплектация', 'Цена'])  
+#     f_object.close()
 
 
 file = open('Carlinks\\archivecarlinks.txt', 'r', encoding='utf8')
@@ -71,7 +72,7 @@ for i in file:
     stroka.append(price)
 
 
-    with open('Carsinfom\\archivecars.csv', 'a', newline='') as f_object:
+    with open('CarsInform\\archivecars.csv', 'a', newline='', encoding='utf8') as f_object:
         writer_object = writer(f_object)
         writer_object.writerow(stroka)  
         f_object.close()

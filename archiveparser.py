@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup as bs
 import requests
 
 
-outfile = open('Carlinks\\archivecarlinks.txt', 'a', encoding='utf8')
 pagesfile = open('PagesLinks\\archivelinks.txt', 'r', encoding='utf8')
 
 for i in pagesfile:
@@ -17,6 +16,8 @@ for i in pagesfile:
         if item.find(class_="css-z5srlr e162wx9x0") == None:
             continue
         else:
+            outfile = open('Carlinks\\archivecarlinks.txt', 'a', encoding='utf8')
             item_url = item.get('href')
             print(item_url, file=outfile)
+            outfile.close()
 

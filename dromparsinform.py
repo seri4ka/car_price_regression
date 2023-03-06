@@ -19,14 +19,14 @@ for i in characteristics:
     keys.append(item.text)
 
 
-# with open('cars.csv', 'a', newline='') as f_object:
-#     writer_object = writer(f_object)
-#     writer_object.writerow(['Марка', 'Модель', 'Год выпуска', 'Двигатель', 'Мощность', 'КПП', 'Привод',
-#         'Цвет', 'Пробег', 'Руль', 'Поколение', 'Комплектация', 'Цена'])  
-#     f_object.close()
+with open('cars.csv', 'a', newline='') as f_object:
+    writer_object = writer(f_object)
+    writer_object.writerow(['Марка', 'Модель', 'Год выпуска', 'Двигатель', 'Мощность', 'КПП', 'Привод',
+        'Цвет', 'Пробег', 'Руль', 'Поколение', 'Комплектация', 'Цена'])  
+    f_object.close()
 
 
-file = open('carlinks.txt', 'r', encoding='utf8')
+file = open('Carlinks\carlinks.txt', 'r', encoding='utf8')
 for i in file:
     url = i.strip()
     response = requests.get(url, timeout=5)
@@ -71,7 +71,7 @@ for i in file:
     stroka.append(price)
 
 
-    with open('Carsinform\cars.csv', 'a', newline='') as f_object:
+    with open('Carsinform\cars.csv', 'a', newline='', encoding='utf8') as f_object:
         writer_object = writer(f_object)
         writer_object.writerow(stroka)  
         f_object.close()
